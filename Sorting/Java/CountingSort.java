@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CountingSort
+class CountingSort
 {
     public static void main(String [] args)
     {
@@ -10,6 +10,9 @@ public class CountingSort
         for(int i=0;i<n;i++)
             arr[i] = sc.nextInt();
         sort(arr);
+        for(int i=0;i<n;i++)
+            System.out.print(arr[i] + " ");
+        System.out.print("\n");
     }
     public static void sort(int[] arr)
     {
