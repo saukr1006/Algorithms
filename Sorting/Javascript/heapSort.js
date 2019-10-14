@@ -1,92 +1,4 @@
-let arr = window.prompt("Enter the array : ").split(" ");
-for (let i = 0; i < arr.length; i++)
-    arr[i] = Number(arr[i]);
-
-function merge(arr, s, mid, e) {
-    let i = s, j = mid + 1;
-    let tempArr = new Array();
-    while (i <= mid && j <= e) {
-        if (arr[i] < arr[j]) {
-            tempArr.push(arr[i]);
-            i++;
-        }
-        else {
-            tempArr.push(arr[j]);
-            j++;
-        }
-    }
-    if (i <= mid)
-        while (i <= mid) {
-            tempArr.push(arr[i]);
-            i++;
-        }
-    else
-        while (j <= e) {
-            tempArr.push(arr[j]);
-            j++;
-        }
-    for (let i = 0; i < tempArr.length; i++)
-        arr[i + s] = tempArr[i];
-}
-
-function mergeSort(arr, s, e) {
-    if (s >= e)
-        return 0;
-    let mid = Math.floor((s + e) / 2);
-    mergeSort(arr, s, mid);
-    mergeSort(arr, mid + 1, e);
-    merge(arr, s, mid, e);
-    return 0;
-}
-
-function quickSort(arr, s, e) {
-    if (s >= e)
-        return 0;
-    let pivot = arr[s];
-    let i = s + 1, j = e, ind = s;
-    for (let x = 1; x < e - s + 1; x++) {
-        if (arr[i] > pivot) {
-            let swap = arr[i];
-            arr[i] = arr[j];
-            arr[j] = swap;
-            j--;
-        }
-        else {
-            ind = i;
-            i++;
-        }
-    }
-    let swap = arr[ind];
-    arr[ind] = arr[s];
-    arr[s] = swap;
-    quickSort(arr, s, ind - 1);
-    quickSort(arr, ind + 1, e);
-    return 0;
-}
-
-function countingSort(arr) {
-    let size = arr.length;
-    let numMax = arr[0];
-    let numMin = arr[0];
-    for (let i = 1; i < size; i++) {
-        if (arr[i] > numMax)
-            numMax = arr[i];
-        if (arr[i] < numMin)
-            numMin = arr[i];
-    }
-    let sizeTemp = numMax - numMin + 1;
-    let tempArr = new Array(sizeTemp);
-    for (var i = 0; i < sizeTemp; i++)
-        tempArr[i] = 0;
-    for (var i = 0; i < size; i++)
-        tempArr[arr[i] - numMin]++;
-    let counter = 0;
-    for (var i = 0; i < sizeTemp; i++)
-        for (var j = 0; j < tempArr[i]; j++) {
-            arr[counter] = i + numMin;
-            counter++;
-        }
-}
+//you can take the input here. But before that check(and delete) the lines below(line number : 89 and 90).
 
 class Heap {
     constructor(n) {
@@ -174,19 +86,10 @@ function reverse(arr) {
     }
 }
 
-function HeapSort(arr) {
-    let hp = new Heap(arr.length);
-    for (let i = 0; i < arr.length; i++)
-        hp.add(arr[i]);
-    arr = hp.sort();
-    reverse(arr);
-    return arr;
-}
-
-// arr = HeapSort(arr);
-
-// quickSort(arr, 0, arr.length - 1);
-
-// mergeSort(arr, 0, arr.length - 1);
-countingSort(arr);
-console.log(arr);
+let arr = {5, 4, 3, 2, 1};
+let n = 5;
+let obj = new Heap(n);
+for(int i=0;i<n;i++)
+    obj.add(arr[i]);
+arr = sort();
+//print array here.
