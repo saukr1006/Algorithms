@@ -1,2 +1,2 @@
-# Algorithms-CP3
+# Algorithms
 This repository contains the algorithms in different languages.
