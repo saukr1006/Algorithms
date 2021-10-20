@@ -1,0 +1,18 @@
+
+class Solution {
+    //Function to find the height of a binary tree.
+    int height(Node node) 
+    {
+        // code here 
+        
+        if(node==null)
+            return 0;
+        
+        int x = height(node.left);
+        int y = height(node.right);
+        
+        int store = Math.max(x,y)+1;
+        
+        return store;
+    }
+}
